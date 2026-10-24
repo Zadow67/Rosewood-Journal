@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+    --paper: #fbf6f0;
+    --surface: #fffdfb;
+    --ink: #382b30;
+    --muted: #8c747c;
+    --rose: #b76580;
+    --rose-light: #f2dfe5;
+    --line: #eadde1;
+    --shadow: 0 10px 30px #4b28300d
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px Manrope, Arial, sans-serif;
+    line-height: 1.55
+}
+
+body.dark {
+    --paper: #211b20;
+    --surface: #30252d;
+    --ink: #f4e9ed;
+    --muted: #c4aeb8;
+    --rose: #e29cb2;
+    --rose-light: #49313c;
+    --line: #4a3942;
+    --shadow: 0 10px 30px #0003
+}
+
+header {
+    padding: 48px max(22px, calc((100% - 1080px)/2));
+    background: linear-gradient(90deg, #3e2834a8, #3e28344d), url('../assets/images/hero-banner.jpg') center/cover;
+    color: white;
+    min-height: 210px
+}
+
+header .eyebrow {
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    opacity: .8
+}
+
+h1 {
+    font: 600 clamp(2rem, 5vw, 3.3rem) Fraunces, serif;
+    margin: 8px 0
+}
+
+h1 em {
+    font-weight: 400
+}
+
+header p {
+    max-width: 590px;
+    margin: 0;
+    opacity: .92
+}
+
+main {
+    max-width: 1080px;
+    margin: 26px auto;
+    padding: 0 20px 60px
+}
+
+.topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px
+}
+
+h2 {
+    font: 600 1.5rem Fraunces, serif;
+    margin: 0 0 14px
+}
+
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 10px;
+    background: var(--rose);
+    color: white;
+    padding: 10px 14px;
+    font-weight: 700
+}
+
+button.secondary {
+    background: var(--rose-light);
+    color: var(--ink)
+}
+
+button.danger {
+    background: transparent;
+    color: var(--muted);
+    padding: 6px 8px
+}
+
+input,
+textarea,
+select {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 10px;
+    padding: 10px 12px;
+    width: 100%;
+    outline: none
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--rose)
+}
+
+label {
+    display: block;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px
+}
+
+.formgrid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 12px
+}
+
+.formgrid .wide {
+    grid-column: 1/-1
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+}
+
+.entry-list {
+    display: grid;
+    gap: 12px
+}
+
+.entry {
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface)
+}
+
+.entry-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    justify-content: space-between
+}
+
+.entry h3 {
+    margin: 0;
+    font-size: 1rem
+}
+
+.meta {
+    font-size: .76rem;
+    color: var(--muted);
+    margin: 4px 0 9px
+}
+
+.entry p {
+    white-space: pre-wrap;
+    margin: 0
+}
+
+.entry-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center
+}
+
+.entry-actions button {
+    font-size: .8rem
+}
+
+.empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--muted)
+}
+
+.toolbar {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 10px;
+    margin-bottom: 14px
+}
+
+.tag {
+    display: inline-block;
+    border-radius: 30px;
+    background: var(--rose-light);
+    padding: 3px 9px;
+    font-size: .72rem;
+    margin: 8px 5px 0 0;
+    color: var(--ink)
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px
+}
+
+.stat {
+    background: var(--rose-light);
+    padding: 15px;
+    border-radius: 14px
+}
+
+.stat strong {
+    display: block;
+    font: 600 1.8rem Fraunces, serif
+}
+
+.stat span {
+    font-size: .75rem;
+    color: var(--muted)
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line)
+}
+
+.task input {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--rose)
+}
+
+.task span {
+    flex: 1
+}
+
+.task.done span {
+    text-decoration: line-through;
+    color: var(--muted)
+}
+
+.habit-grid {
+    display: grid;
+    grid-template-columns: 1fr repeat(7, 32px);
+    gap: 8px;
+    align-items: center;
+    font-size: .8rem
+}
+
+.habit-grid button {
+    padding: 6px;
+    background: var(--rose-light);
+    color: var(--ink)
+}
+
+.habit-grid button.done {
+    background: var(--rose);
+    color: white
+}
+
+.footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .78rem;
+    padding: 15px
+}
+
+@media(max-width:650px) {
+    header {
+        padding: 34px 22px
+    }
+
+    .formgrid,
+    .toolbar,
+    .columns {
+        grid-template-columns: 1fr
+    }
+
+    .formgrid .wide {
+        grid-column: auto
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .habit-grid {
+        grid-template-columns: 1fr repeat(7, 25px);
+        gap: 4px
+    }
+
+    .habit-grid button {
+        padding: 5px 0;
+        font-size: .7rem
+    }
+
+    .panel {
+        padding: 16px
+    }
+}

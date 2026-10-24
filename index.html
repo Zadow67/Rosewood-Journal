@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rosewood Journal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="eyebrow">daily journal</div>
+        <h1>Rosewood <em>Journal</em></h1>
+        <p>A soft little place to keep track of the things that happened today.</p>
+    </header>
+    <main>
+        <section class="panel">
+            <h2>Write an entry</h2>
+            <form id="entryForm" class="formgrid">
+                <div><label for="title">Title</label><input id="title" maxlength="100" required
+                        placeholder="A small win today"></div>
+                <div><label for="date">Date</label><input id="date" type="date" required></div>
+                <div class="wide"><label for="reflection">What happened?</label><textarea id="reflection" rows="4"
+                        maxlength="5000" placeholder="Write a few lines..." required></textarea></div>
+                <div class="wide actions"><button type="submit">Save entry</button></div>
+            </form>
+        </section>
+        <section class="panel">
+            <div class="topline">
+                <h2>Journal entries</h2><span id="entryCount" class="meta"></span>
+            </div>
+            <div id="entries" class="entry-list"></div>
+        </section>
+        <div class="footer">Your entries are saved in this browser on this device.</div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
