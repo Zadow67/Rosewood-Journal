@@ -10,9 +10,9 @@
 
 <body>
     <header>
-        <div class="eyebrow">daily journal</div>
+        <div class="eyebrow">daily journal · version 2</div>
         <h1>Rosewood <em>Journal</em></h1>
-        <p>A soft little place to keep track of the things that happened today.</p>
+        <p>Keep the little moments, notice how you feel, and find an entry again when you need it.</p>
     </header>
     <main>
         <section class="panel">
@@ -21,18 +21,37 @@
                 <div><label for="title">Title</label><input id="title" maxlength="100" required
                         placeholder="A small win today"></div>
                 <div><label for="date">Date</label><input id="date" type="date" required></div>
+                <div><label for="mood">Mood</label><select id="mood">
+                        <option>Calm</option>
+                        <option>Grateful</option>
+                        <option>Joy</option>
+                        <option>Love</option>
+                        <option>Excited</option>
+                        <option>Sad</option>
+                        <option>Anxious</option>
+                        <option>Angry</option>
+                    </select></div>
+                <div><label for="tags">Tags (comma separated)</label><input id="tags" maxlength="180"
+                        placeholder="Wins, Self-care"></div>
                 <div class="wide"><label for="reflection">What happened?</label><textarea id="reflection" rows="4"
-                        maxlength="5000" placeholder="Write a few lines..." required></textarea></div>
-                <div class="wide actions"><button type="submit">Save entry</button></div>
+                        maxlength="5000" required placeholder="Write a few lines..."></textarea></div>
+                <div class="wide actions"><button type="submit">Save entry</button><button class="secondary"
+                        id="exportCsv" type="button">Export CSV</button></div>
             </form>
         </section>
         <section class="panel">
             <div class="topline">
                 <h2>Journal entries</h2><span id="entryCount" class="meta"></span>
             </div>
+            <div class="toolbar"><input id="search" type="search"
+                    placeholder="Search titles, reflections, or tags"><select id="sort">
+                    <option value="newest">Newest first</option>
+                    <option value="oldest">Oldest first</option>
+                    <option value="favorites">Favorites first</option>
+                </select></div>
             <div id="entries" class="entry-list"></div>
         </section>
-        <div class="footer">Your entries are saved in this browser on this device.</div>
+        <div class="footer">Saved locally in this browser. Export a CSV copy whenever you need one.</div>
     </main>
     <script src="js/script.js"></script>
 </body>
