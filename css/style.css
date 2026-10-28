@@ -340,3 +340,94 @@ label {
         padding: 16px
     }
 }
+
+/* Version 5 visual refinement: a calmer, roomier journal surface. */
+:root {
+    --paper: #f8f0ed;
+    --surface: #fffaf8;
+    --rose: #a95775;
+    --rose-light: #f3e0e7;
+    --line: #e8d4dc;
+    --shadow: 0 14px 38px #4b283012
+}
+
+header {
+    min-height: 250px;
+    padding-top: 58px;
+    padding-bottom: 58px;
+    background-image: linear-gradient(90deg, #3e2834b8, #3e28344a), url('../assets/images/hero-banner.jpg');
+    border-radius: 0 0 28px 28px
+}
+
+main {
+    max-width: 1120px;
+    margin-top: 32px
+}
+
+.panel {
+    border-radius: 20px;
+    padding: 25px;
+    transition: box-shadow .18s ease, transform .18s ease
+}
+
+.panel:focus-within {
+    box-shadow: 0 14px 34px #4b283018
+}
+
+button {
+    transition: transform .15s ease, filter .15s ease
+}
+
+button:hover {
+    filter: brightness(1.04);
+    transform: translateY(-1px)
+}
+
+@media(max-width:650px) {
+    header {
+        border-radius: 0 0 20px 20px
+    }
+
+    .panel {
+        padding: 17px
+    }
+}
+
+
+
+/* Version 6 prompt panel */
+#promptPanel {
+    background: linear-gradient(135deg, var(--surface), var(--rose-light))
+}
+
+#promptText {
+    font-family: Fraunces, serif;
+    font-size: 1.08rem
+}
+
+
+
+/* Version 7 tag filter controls */
+#tagFilters button {
+    font-size: .78rem;
+    padding: 7px 11px
+}
+
+
+
+/* Version 8 priorities */
+#prioritiesPanel .task {
+    padding: 12px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--rose-light) 38%, transparent);
+    margin: 5px 0
+}
+
+
+
+/* Version 9 reminders */
+#reminderList .task {
+    border-left: 3px solid var(--rose);
+    padding-left: 12px
+}
+

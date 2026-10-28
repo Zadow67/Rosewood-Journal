@@ -10,11 +10,26 @@
 
 <body>
     <header>
-        <div class="eyebrow">daily journal · version 2</div>
+        <div class="eyebrow">daily planner · version 9</div>
         <h1>Rosewood <em>Journal</em></h1>
-        <p>Keep the little moments, notice how you feel, and find an entry again when you need it.</p>
+        <p>A soft, unhurried space to check in with yourself, plan what matters, and keep a little proof that today
+            counted.</p>
     </header>
     <main>
+        <div class="topline"><span class="meta">Your personal space, saved in this browser</span>
+            <div class="actions"><button class="secondary" id="theme">Toggle dark mode</button><button class="secondary"
+                    id="exportJson">Backup data</button><label class="secondary"
+                    style="display:inline-flex;align-items:center;padding:10px 14px;border-radius:10px;cursor:pointer">Restore
+                    backup<input id="importJson" type="file" accept=".json,application/json" hidden></label></div>
+        </div>
+        <section class="panel">
+            <h2>Your week at a glance</h2>
+            <div class="stats">
+                <div class="stat"><strong id="totalEntries">0</strong><span>Journal entries</span></div>
+                <div class="stat"><strong id="totalFavorites">0</strong><span>Favorite moments</span></div>
+                <div class="stat"><strong id="totalTasks">0/0</strong><span>Tasks complete</span></div>
+            </div>
+        </section>
         <section class="panel">
             <h2>Write an entry</h2>
             <form id="entryForm" class="formgrid">
@@ -39,6 +54,20 @@
                         id="exportCsv" type="button">Export CSV</button></div>
             </form>
         </section>
+        <div class="columns">
+            <section class="panel">
+                <h2>Things to do</h2>
+                <form id="taskForm" class="actions"><input id="taskText" maxlength="180" required
+                        placeholder="Add a small task"><button type="submit">Add</button></form>
+                <div id="tasks"></div>
+            </section>
+            <section class="panel">
+                <h2>Habits this week</h2>
+                <form id="habitForm" class="actions"><input id="habitName" maxlength="60" required
+                        placeholder="Add a habit"><button type="submit">Add</button></form>
+                <div id="habits" style="margin-top:12px"></div>
+            </section>
+        </div>
         <section class="panel">
             <div class="topline">
                 <h2>Journal entries</h2><span id="entryCount" class="meta"></span>
@@ -51,7 +80,38 @@
                 </select></div>
             <div id="entries" class="entry-list"></div>
         </section>
-        <div class="footer">Saved locally in this browser. Export a CSV copy whenever you need one.</div>
+        <section class="panel" id="promptPanel">
+            <div class="topline">
+                <h2>A gentle nudge</h2><button class="secondary" id="newPrompt" type="button">Get a writing
+                    prompt</button>
+            </div>
+            <p id="promptText" class="empty">When words feel far away, start with one small thing.</p>
+        </section>
+
+        <section class="panel" id="tagFilterPanel">
+            <h2>Browse by tag</h2>
+            <div class="actions" id="tagFilters"></div>
+        </section>
+
+        <section class="panel" id="prioritiesPanel">
+            <h2>Today's priorities</h2>
+            <p class="meta">Keep the important things visible, without making the list too long.</p>
+            <form class="actions" id="priorityForm"><input id="priorityText" maxlength="180" required
+                    placeholder="One thing that matters today"><button>Add priority</button></form>
+            <div id="priorityList" class="entry-list" style="margin-top:12px"></div>
+        </section>
+
+        <section class="panel" id="remindersPanel">
+            <h2>Remember for later</h2>
+            <form class="formgrid" id="reminderForm">
+                <div><label for="reminderText">Reminder</label><input id="reminderText" maxlength="180" required
+                        placeholder="Return the library book"></div>
+                <div><label for="reminderDate">Due date</label><input id="reminderDate" type="date" required></div>
+                <div class="wide"><button>Add reminder</button></div>
+            </form>
+            <div id="reminderList" class="entry-list" style="margin-top:12px"></div>
+        </section>
+        \n<div class="footer">Rosewood Journal · version 9 · Data stays in this browser unless you export it.</div>
     </main>
     <script src="js/script.js"></script>
 </body>
