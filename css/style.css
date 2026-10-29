@@ -341,7 +341,7 @@ label {
     }
 }
 
-/* Version 5 visual refinement: a calmer, roomier journal surface. */
+
 :root {
     --paper: #f8f0ed;
     --surface: #fffaf8;
@@ -395,7 +395,7 @@ button:hover {
 
 
 
-/* Version 6 prompt panel */
+
 #promptPanel {
     background: linear-gradient(135deg, var(--surface), var(--rose-light))
 }
@@ -407,7 +407,7 @@ button:hover {
 
 
 
-/* Version 7 tag filter controls */
+
 #tagFilters button {
     font-size: .78rem;
     padding: 7px 11px
@@ -415,7 +415,7 @@ button:hover {
 
 
 
-/* Version 8 priorities */
+
 #prioritiesPanel .task {
     padding: 12px;
     border-radius: 10px;
@@ -425,9 +425,443 @@ button:hover {
 
 
 
-/* Version 9 reminders */
+
 #reminderList .task {
     border-left: 3px solid var(--rose);
     padding-left: 12px
 }
 
+
+
+
+.habit-row {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line)
+}
+
+.habit-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(24px, 1fr));
+    gap: 5px;
+    margin-top: 8px
+}
+
+.habit-days label {
+    text-align: center;
+    margin: 0
+}
+
+.habit-days input {
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin: 0 auto 4px;
+    accent-color: var(--rose)
+}
+
+.habit-days span {
+    font-size: .68rem
+}
+
+
+
+
+#monthlyPanel textarea {
+    min-height: 84px
+}
+
+
+
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px
+}
+
+.board-note {
+    background: var(--rose-light);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.board-note p {
+    font-family: Fraunces, serif;
+    margin: 0 0 14px
+}
+
+
+
+
+:root[data-accent='sage'] {
+    --rose: #6c8a70;
+    --rose-light: #e0eadf
+}
+
+:root[data-accent='lavender'] {
+    --rose: #8a79ae;
+    --rose-light: #e9e2f4
+}
+
+:root[data-accent='amber'] {
+    --rose: #a77835;
+    --rose-light: #f4e7ce
+}
+
+.compact .panel {
+    padding: 14px;
+    margin-bottom: 12px
+}
+
+.compact .entry {
+    padding: 10px
+}
+
+@media print {
+
+    button,
+    form,
+    .topline .actions {
+        display: none !important
+    }
+
+    body {
+        background: white !important;
+        color: black !important
+    }
+
+    .panel {
+        box-shadow: none;
+        break-inside: avoid
+    }
+}
+
+
+:root {
+    --paper: #f6f1ee;
+    --surface: #fffdfb;
+    --ink: #382b30;
+    --muted: #88757b;
+    --rose: #a95775;
+    --rose-light: #f3e0e7;
+    --line: #e8d8dd;
+    --shadow: 0 8px 28px #3c24300b;
+}
+
+body {
+    background: var(--paper);
+}
+
+.app-layout {
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 238px;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    padding: 26px 16px 18px;
+    background: var(--surface);
+    border-right: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0 8px 38px;
+    color: var(--ink);
+    text-decoration: none;
+    font: 600 1.15rem Fraunces, serif;
+}
+
+.brand small {
+    display: block;
+    margin-top: 1px;
+    color: var(--muted);
+    font: 500 .68rem Manrope, sans-serif;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--rose-light);
+    color: var(--rose);
+    font: 600 1.5rem Fraunces, serif;
+}
+
+.nav-label {
+    margin: 0 10px 10px;
+    color: var(--muted);
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+
+.side-nav {
+    display: grid;
+    gap: 5px;
+}
+
+.side-nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border-radius: 11px;
+    color: var(--muted);
+    font-size: .82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .16s, color .16s;
+}
+
+.side-nav a span {
+    width: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.side-nav a:hover,
+.side-nav a.active {
+    color: var(--rose);
+    background: var(--rose-light);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-note {
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    background: var(--rose-light);
+    color: var(--ink);
+    font: 400 1rem/1.45 Fraunces, serif;
+}
+
+.sidebar-theme {
+    width: 100%;
+    font-size: .75rem;
+}
+
+.app-content {
+    min-width: 0;
+    margin-left: 238px;
+}
+
+header {
+    min-height: 235px;
+    padding: 46px clamp(24px, 5vw, 70px);
+    border-radius: 0 0 26px 26px;
+}
+
+main {
+    max-width: 1280px;
+    padding: 0 clamp(18px, 3.5vw, 48px) 48px;
+    margin: 26px auto 0;
+}
+
+.topline .actions {
+    align-items: center;
+}
+
+.panel {
+    border-radius: 17px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+}
+
+.panel h2 {
+    font-size: 1.35rem;
+}
+
+.stat {
+    border: 1px solid color-mix(in srgb, var(--rose) 12%, transparent);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--rose) 45%, transparent);
+    outline-offset: 2px;
+}
+
+button:hover {
+    filter: brightness(.98);
+}
+
+input[type="checkbox"] {
+    accent-color: var(--rose);
+}
+
+.reminder-row.done span strong {
+    text-decoration: line-through;
+    color: var(--muted);
+}
+
+.reminder-row small {
+    display: block;
+}
+
+#tagFilters button {
+    border: 1px solid var(--line);
+}
+
+#tagFilters button:hover {
+    border-color: var(--rose);
+}
+
+.footer {
+    padding: 22px 10px;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 190px;
+        padding: 20px 11px;
+    }
+
+    .app-content {
+        margin-left: 190px;
+    }
+
+    .side-nav a {
+        padding: 10px 9px;
+        gap: 8px;
+    }
+
+    header {
+        padding: 38px 28px;
+    }
+}
+
+@media (max-width: 680px) {
+    .sidebar {
+        position: static;
+        width: auto;
+        padding: 12px 14px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+        margin: 0 3px 12px;
+    }
+
+    .nav-label,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .side-nav {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        padding-bottom: 3px;
+    }
+
+    .side-nav a {
+        flex: 0 0 auto;
+        padding: 8px 10px;
+        font-size: .75rem;
+    }
+
+    .side-nav a span {
+        display: none;
+    }
+
+    .app-content {
+        margin-left: 0;
+    }
+
+    header {
+        min-height: 205px;
+        padding: 30px 22px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    main {
+        margin-top: 20px;
+        padding: 0 13px 30px;
+    }
+
+    .topline {
+        align-items: flex-start;
+    }
+
+    .topline .actions button,
+    .topline .actions label {
+        font-size: .75rem;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+}
+
+@media print {
+    .sidebar,
+    .topline .actions,
+    button,
+    form,
+    #settingsPanel,
+    #promptPanel,
+    #moodBoardPanel {
+        display: none !important;
+    }
+
+    .app-content {
+        margin: 0;
+    }
+
+    header {
+        min-height: 0;
+        padding: 20px;
+        color: #222;
+        background: none;
+    }
+
+    body,
+    .panel {
+        background: white;
+        box-shadow: none;
+    }
+}
+
+.habit-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.habit-heading .danger {
+    flex: 0 0 auto;
+}
+
+.habit-days label {
+    cursor: pointer;
+}
+
+.habit-days input {
+    cursor: pointer;
+}

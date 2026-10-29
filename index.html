@@ -9,8 +9,25 @@
 </head>
 
 <body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <a class="brand" href="#home"><span class="brand-mark">r.</span><span>Rosewood<small>your journal</small></span></a>
+            <div class="nav-label">YOUR SPACE</div>
+            <nav class="side-nav" aria-label="Main navigation">
+                <a class="active" href="#home"><span>⌂</span> Overview</a>
+                <a href="#entryForm"><span>✎</span> Write entry</a>
+                <a href="#entriesPanel"><span>▤</span> Journal entries</a>
+                <a href="#tasksPanel"><span>✓</span> Things to do</a>
+                <a href="#habitsPanel"><span>◷</span> Habits</a>
+                <a href="#remindersPanel"><span>♧</span> Reminders</a>
+                <a href="#monthlyPanel"><span>☼</span> Monthly reflection</a>
+                <a href="#moodBoardPanel"><span>◇</span> Mood board</a>
+            </nav>
+            <div class="sidebar-bottom"><div class="sidebar-note">A little progress is still progress.</div><button class="secondary sidebar-theme" id="sidebarTheme" type="button">Switch appearance</button></div>
+        </aside>
+        <div class="app-content" id="home">
     <header>
-        <div class="eyebrow">daily planner · version 9</div>
+        <div class="eyebrow">your personal space</div>
         <h1>Rosewood <em>Journal</em></h1>
         <p>A soft, unhurried space to check in with yourself, plan what matters, and keep a little proof that today
             counted.</p>
@@ -22,7 +39,7 @@
                     style="display:inline-flex;align-items:center;padding:10px 14px;border-radius:10px;cursor:pointer">Restore
                     backup<input id="importJson" type="file" accept=".json,application/json" hidden></label></div>
         </div>
-        <section class="panel">
+        <section class="panel" id="overviewPanel">
             <h2>Your week at a glance</h2>
             <div class="stats">
                 <div class="stat"><strong id="totalEntries">0</strong><span>Journal entries</span></div>
@@ -30,7 +47,7 @@
                 <div class="stat"><strong id="totalTasks">0/0</strong><span>Tasks complete</span></div>
             </div>
         </section>
-        <section class="panel">
+        <section class="panel" id="writePanel">
             <h2>Write an entry</h2>
             <form id="entryForm" class="formgrid">
                 <div><label for="title">Title</label><input id="title" maxlength="100" required
@@ -55,20 +72,20 @@
             </form>
         </section>
         <div class="columns">
-            <section class="panel">
+            <section class="panel" id="tasksPanel">
                 <h2>Things to do</h2>
                 <form id="taskForm" class="actions"><input id="taskText" maxlength="180" required
                         placeholder="Add a small task"><button type="submit">Add</button></form>
                 <div id="tasks"></div>
             </section>
-            <section class="panel">
+            <section class="panel" id="habitsPanel">
                 <h2>Habits this week</h2>
                 <form id="habitForm" class="actions"><input id="habitName" maxlength="60" required
                         placeholder="Add a habit"><button type="submit">Add</button></form>
                 <div id="habits" style="margin-top:12px"></div>
             </section>
         </div>
-        <section class="panel">
+        <section class="panel" id="entriesPanel">
             <div class="topline">
                 <h2>Journal entries</h2><span id="entryCount" class="meta"></span>
             </div>
@@ -111,8 +128,48 @@
             </form>
             <div id="reminderList" class="entry-list" style="margin-top:12px"></div>
         </section>
-        \n<div class="footer">Rosewood Journal · version 9 · Data stays in this browser unless you export it.</div>
+
+        <section class="panel" id="monthlyPanel">
+            <h2>Monthly reflection</h2>
+            <div class="formgrid">
+                <div><label for="monthChoice">Month</label><input id="monthChoice" type="month"></div>
+                <div class="wide"><label for="monthNote">What do you want to remember about this month?</label><textarea
+                        id="monthNote" rows="3" maxlength="3000"
+                        placeholder="A few words about this season..."></textarea></div>
+                <div class="wide actions"><button id="saveMonthNote" type="button">Save reflection</button><span
+                        id="monthStatus" class="meta"></span></div>
+            </div>
+            <div id="monthSummary" class="meta"></div>
+        </section>
+
+        <section class="panel" id="moodBoardPanel">
+            <h2>Mood board</h2>
+            <p class="meta">Collect small intentions and reminders for the season you are in.</p>
+            <form class="actions" id="boardForm"><input id="boardText" maxlength="180" required
+                    placeholder="Small steps still count"><button>Add note</button></form>
+            <div id="boardItems" class="board-grid" style="margin-top:16px"></div>
+
+
+
+        </section>
+
+        <section class="panel" id="settingsPanel">
+            <h2>Personalize your space</h2>
+            <div class="actions"><label for="accentChoice">Accent</label><select id="accentChoice"
+                    style="max-width:180px">
+                    <option value="rose">Rose</option>
+                    <option value="sage">Sage</option>
+                    <option value="lavender">Lavender</option>
+                    <option value="amber">Amber</option>
+                </select><button class="secondary" id="compactToggle" type="button">Toggle compact
+                    spacing</button><button class="secondary" id="printJournal" type="button">Print / save PDF</button>
+            </div>
+            <p class="meta">Preferences are saved in this browser.</p>
+        </section>
+        <div class="footer">Rosewood Journal · made for your everyday moments. Your data stays in this browser unless you export it.</div>
     </main>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 
